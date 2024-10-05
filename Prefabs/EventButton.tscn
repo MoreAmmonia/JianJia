@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://desmq56oa7nn5"]
+
+[ext_resource type="Theme" uid="uid://c0niegvb7wspf" path="res://main.tres" id="1_5wnvm"]
+[ext_resource type="Texture2D" uid="uid://b6ykept13l68e" path="res://title.png" id="1_fc318"]
+[ext_resource type="FontFile" uid="uid://de1x4ia82g217" path="res://ZhanKuQingKeHuangYouTi-2.ttf" id="2_cqbb6"]
+[ext_resource type="Script" path="res://Prefabs/EventButton/ImageButton.gd" id="3_k0bdi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcinx"]
+draw_center = false
+border_width_bottom = 200
+border_color = Color(0.533333, 0.690196, 0.690196, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2kob"]
+draw_center = false
+border_width_left = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7avwe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30fcb"]
+bg_color = Color(0, 0.67451, 0.909804, 0.180392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvkak"]
+bg_color = Color(0, 0.67451, 0.909804, 0.443137)
+
+[node name="EventRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 500.0
+mouse_filter = 1
+theme = ExtResource("1_5wnvm")
+
+[node name="MainBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 400.0
+grow_horizontal = 2
+
+[node name="Background" type="TextureRect" parent="MainBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fc318")
+expand_mode = 1
+
+[node name="Shadow" type="Label" parent="MainBar"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -123.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tcinx")
+
+[node name="Title" type="Label" parent="MainBar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -131.0
+offset_right = 800.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cqbb6")
+theme_override_font_sizes/font_size = 110
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2kob")
+text = "我要玩原神"
+vertical_alignment = 2
+
+[node name="FootBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0.427451, 0.964706, 1)
+
+[node name="EventID" type="Label" parent="FootBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_cqbb6")
+theme_override_font_sizes/font_size = 83
+text = "W1-E1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ImageButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7avwe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_30fcb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cvkak")
+script = ExtResource("3_k0bdi")

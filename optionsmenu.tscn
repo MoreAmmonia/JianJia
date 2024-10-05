@@ -1,0 +1,173 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbr52f2rwpxex"]
+
+[ext_resource type="Theme" uid="uid://c0niegvb7wspf" path="res://main.tres" id="1_i28lk"]
+[ext_resource type="Texture2D" uid="uid://bq8sp2rtdcoda" path="res://Backgrounds/optionsmenu.png" id="1_wp7de"]
+[ext_resource type="Script" path="res://Scripts/StartingMenu/OptionsMenu/Animations.gd" id="3_kkgt0"]
+[ext_resource type="Script" path="res://Scripts/StartingMenu/OptionsMenu/ButtonReturn.gd" id="4_inbhi"]
+
+[sub_resource type="Animation" id="Animation_lhklp"]
+resource_name = "LoadedOptions"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(200, -0.25, 0, 0.25, 0, 4000, -0.3, 337, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1000, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonReturn:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xghuo"]
+_data = {
+"LoadedOptions": SubResource("Animation_lhklp")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsllq"]
+content_margin_top = 70.0
+content_margin_bottom = 70.0
+bg_color = Color(0, 0.796078, 0.796078, 0.360784)
+border_width_left = 100
+border_width_right = 100
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlugy"]
+bg_color = Color(0, 0.666667, 0.666667, 0.360784)
+border_width_left = 100
+border_width_right = 100
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhhun"]
+bg_color = Color(0, 0.34902, 0.34902, 0.360784)
+border_width_left = 100
+border_width_right = 100
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcheh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i28lk")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wp7de")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_xghuo")
+}
+autoplay = "LoadedOptions"
+script = ExtResource("3_kkgt0")
+
+[node name="OptionsWindow" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="OptionsWindow"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 3140.0
+offset_bottom = 2120.0
+theme = ExtResource("1_i28lk")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_rsllq")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_wlugy")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_mhhun")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fcheh")
+tab_alignment = 1
+
+[node name="Game" type="VBoxContainer" parent="OptionsWindow/TabContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="OptionsWindow/TabContainer/Game"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "你好"
+
+[node name="Video" type="VBoxContainer" parent="OptionsWindow/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Audio" type="VBoxContainer" parent="OptionsWindow/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Profile" type="VBoxContainer" parent="OptionsWindow/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 4000.0
+offset_top = -1000.0
+offset_right = 9000.0
+offset_bottom = 8000.0
+rotation = 0.261799
+color = Color(0.576471, 0.941176, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonReturn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -382.0
+offset_top = -1084.0
+offset_right = 211.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 0.261799
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_font_sizes/font_size = 250
+text = "返回"
+flat = true
+script = ExtResource("4_inbhi")
+
+[connection signal="animation_finished" from="Animations" to="Animations" method="_on_animation_finished"]

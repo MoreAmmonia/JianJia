@@ -1,0 +1,73 @@
+{
+	"WorldInfo":{
+		"length":10000
+	},
+	"Root1":{
+		"name":"Root Event",
+		"id":"W1-E1",
+		"background":"none",
+		"introduction":"The root event",
+		"position":[100,100],
+		"parent":[]
+	},
+	"Root2":{
+		"name":"Root Event 1",
+		"id":"W1-E2",
+		"background":"none",
+		"introduction":"The next event",
+		"position":[100,700],
+		"parent":[
+			"Root1"
+		]
+	},
+	"Root3":{
+		"name":"提米我儿子",
+		"id":"WEMZ",
+		"background":"none",
+		"introduction":"The next event",
+		"position":[100,1300],
+		"parent":[
+			"Root1"
+		]
+	},
+	"Root4":{
+		"name":"什么软糖鞋我不知道哈哈哈哈哈哈",
+		"id":"1145141919810似乎可以更长1145141919810",
+		"background":"none",
+		"introduction":"The next event",
+		"position":[100,1300],
+		"parent":[
+			"Root1"
+		]
+	},
+	"RootBoss":{
+		"name":"后面还有",
+		"id":"BOSS",
+		"background":"none",
+		"introduction":"The next event",
+		"position":[1000,100],
+		"parent":[
+			"Root1"
+		]
+	},
+	"Root5":{
+		"name":"真的有",
+		"id":"W2-E6",
+		"background":"none",
+		"introduction":"The next event",
+		"position":[4000,100],
+		"parent":[
+			"Root1"
+		]
+	},
+	"Root6":{
+		"name":"zyc你dsb👎👎👎",
+		"id":"Damn",
+		"background":"none",
+		"introduction":"The next event",
+		"position":[9000,100],
+		"parent":[
+			"Root1"
+		]
+	}
+}

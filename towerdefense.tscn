@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c32qb2rb5w1ga"]
+
+[ext_resource type="Texture2D" uid="uid://bqs02q253lj7w" path="res://tile.png" id="1_2y62i"]
+[ext_resource type="Script" path="res://Scripts/MainGame/TowerDefense/Tile.gd" id="2_dfcat"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmd6i"]
+texture = ExtResource("1_2y62i")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ihtbj"]
+tile_size = Vector2i(64, 64)
+sources/2 = SubResource("TileSetAtlasSource_pmd6i")
+
+[node name="TowerDefense" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_ihtbj")
+format = 2
+layer_0/tile_data = PackedInt32Array(1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 196613, 2, 0, 131077, 2, 0, 131078, 2, 0, 131079, 2, 0, 131080, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 327685, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 327689, 2, 0, 262153, 2, 0, 131081, 2, 0, 131082, 2, 0, 131083, 2, 0, 196619, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 393227, 2, 0, 327691, 2, 0, 65547, 2, 0, 11, 2, 0, 10, 2, 0, 9, 2, 0, 8, 2, 0, 7, 2, 0, 6, 2, 0, 5, 2, 0)
+script = ExtResource("2_dfcat")

@@ -1,0 +1,45 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c0niegvb7wspf"]
+
+[ext_resource type="FontFile" uid="uid://de1x4ia82g217" path="res://ZhanKuQingKeHuangYouTi-2.ttf" id="1_82iai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kc0kv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgs6d"]
+bg_color = Color(0.0980392, 0.6, 0.6, 0.533333)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t5jc"]
+bg_color = Color(0, 0, 0, 0.27451)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04en7"]
+bg_color = Color(0, 0.419608, 0.419608, 0.533333)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[resource]
+Button/fonts/font = ExtResource("1_82iai")
+Button/styles/focus = SubResource("StyleBoxEmpty_kc0kv")
+Button/styles/hover = SubResource("StyleBoxFlat_wgs6d")
+Button/styles/normal = SubResource("StyleBoxFlat_0t5jc")
+Button/styles/pressed = SubResource("StyleBoxFlat_04en7")

@@ -1,0 +1,186 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb1qbn7twfqi4"]
+
+[ext_resource type="Theme" uid="uid://c0niegvb7wspf" path="res://main.tres" id="1_4ll6y"]
+[ext_resource type="Script" path="res://Scripts/StartingMenu/MainMenu/Animations.gd" id="2_044ro"]
+[ext_resource type="Texture2D" uid="uid://ctvg7khuxcvg4" path="res://Backgrounds/mainmenu.png" id="2_umcsf"]
+[ext_resource type="Texture2D" uid="uid://b6ykept13l68e" path="res://title.png" id="2_xdj7k"]
+[ext_resource type="Script" path="res://Scripts/StartingMenu/MainMenu/ButtonStart.gd" id="4_uwwig"]
+[ext_resource type="Script" path="res://Scripts/StartingMenu/MainMenu/ButtonOptions.gd" id="5_dcif0"]
+[ext_resource type="Script" path="res://Scripts/StartingMenu/MainMenu/ButtonExit.gd" id="6_5vhw1"]
+
+[sub_resource type="Animation" id="Animation_272if"]
+resource_name = "GameStart"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-4800, -0.25, 0, 0.25, 0, -3000, -0.8, 402.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Window/GameMenu/VBoxContainer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1100, -0.25, 0, 0.6, 419.5, 0, -0.8, 1029.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Window/GameMenu/Title:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_4gbfl"]
+resource_name = "LoadingOptions"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-3000, -0.25, 0, 0.343078, 8, 0, -0.0547728, -55, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Window:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, -1, 1.5708, -0.3, 4.4292, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dmguh"]
+_data = {
+"GameStart": SubResource("Animation_272if"),
+"LoadingOptions": SubResource("Animation_4gbfl")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4ll6y")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_dmguh")
+}
+autoplay = "GameStart"
+script = ExtResource("2_044ro")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_umcsf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -4800.0
+offset_top = -1500.0
+offset_right = 200.0
+offset_bottom = 7500.0
+rotation = 0.261799
+color = Color(0.576471, 0.941176, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Window" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameMenu" type="Control" parent="Window"]
+layout_mode = 1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_bottom = -100.0
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="Window/GameMenu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.25
+grow_horizontal = 2
+texture = ExtResource("2_xdj7k")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/GameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.35
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -1100.0
+offset_right = -1100.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ButtonContinue" type="Button" parent="Window/GameMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "继续游戏"
+alignment = 0
+
+[node name="ButtonStart" type="Button" parent="Window/GameMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "新游戏"
+alignment = 0
+script = ExtResource("4_uwwig")
+
+[node name="ButtonAlmanac" type="Button" parent="Window/GameMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "人物图鉴"
+alignment = 0
+
+[node name="ButtonOptions" type="Button" parent="Window/GameMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "游戏设定"
+alignment = 0
+script = ExtResource("5_dcif0")
+
+[node name="ButtonExit" type="Button" parent="Window/GameMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "退出游戏"
+alignment = 0
+script = ExtResource("6_5vhw1")
+
+[connection signal="animation_finished" from="Animations" to="Animations" method="_on_animation_finished"]

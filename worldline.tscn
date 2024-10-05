@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq8j7boxnk06u"]
+
+[ext_resource type="Texture2D" uid="uid://c2vlmir57iqhj" path="res://Backgrounds/worldline.png" id="1_yhhng"]
+[ext_resource type="Script" path="res://Scripts/MainGame/WorldLine/LoadEventTree.gd" id="2_1v86e"]
+[ext_resource type="PackedScene" uid="uid://desmq56oa7nn5" path="res://Prefabs/EventButton.tscn" id="3_gsb2a"]
+
+[node name="WorldLine" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yhhng")
+
+[node name="TreeMap" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="Control" type="Control" parent="TreeMap"]
+custom_minimum_size = Vector2(10000, 2160)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_1v86e")
+metadata/WorldName = "WorldTest"
+
+[node name="EventRoot2" parent="TreeMap/Control" instance=ExtResource("3_gsb2a")]
+offset_left = 2479.0
+offset_top = 1025.0
+offset_right = 3279.0
+offset_bottom = 1525.0
+
+[node name="EventRoot3" parent="TreeMap/Control" instance=ExtResource("3_gsb2a")]
+offset_left = 5033.0
+offset_top = 654.0
+offset_right = 5833.0
+offset_bottom = 1154.0
+
+[node name="EventRoot4" parent="TreeMap/Control" instance=ExtResource("3_gsb2a")]
+offset_left = 8286.0
+offset_top = 869.0
+offset_right = 9086.0
+offset_bottom = 1369.0
+
+[node name="EventRoot" parent="TreeMap/Control" instance=ExtResource("3_gsb2a")]
+offset_left = 1000.0
+offset_top = 100.0
+offset_right = 1800.0
+offset_bottom = 600.0
+
+[node name="InfoBoard" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="InfoBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="InfoBoard"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+color = Color(0, 0.835294, 0.839216, 1)
+
+[node name="Label" type="Label" parent="InfoBoard/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "114514"
+vertical_alignment = 1
